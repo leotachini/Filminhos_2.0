@@ -6,6 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+Esse é meu projeto de adaptação de um site antigo feito a partir de React
+
 ### `npm start`
 
 Runs the app in the development mode.\
