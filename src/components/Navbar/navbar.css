@@ -1,0 +1,13 @@
+span {
+    background-color: #dddddd;
+    color: white;;
+    display: flex;
+    padding: 9px;
+    font-weight: bold;
+  }
+  
+  .navbar{
+    background-color: #dddddd;
+    text-align: center;
+    color: black;
+  }
