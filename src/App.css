@@ -5,16 +5,51 @@
   color: black;
 }
 
-body{
+body {
   background-color: #999999;
   color: black;
-  
+  overflow-x: hidden;
 }
 
-p{
+p {
   text-align: center;
 }
 
-.background{
+.background {
   background-color: #999999;
+}
+
+p {
+  text-align: center;
+}
+
+img {
+  width: 280px;
+  height: 390px;
+  padding: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 17rem);
+  gap: 10px;
+}
+img:hover {
+  transition: 0.8s;
+  color: #fff;
+  background-color: rgb(255, 0, 85);
+  cursor: pointer;
+}
+
+.caixa {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.imgs:hover {
+  transition: 0, 8s;
+  color: #fff;
+  background-color: #fff;
+  cursor: default;
 }

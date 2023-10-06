@@ -1,8 +1,10 @@
-import React from 'react';
-import { MovieOpenOutline } from 'mdi-material-ui';
-import { TelevisionClassic } from 'mdi-material-ui';
-import { Menu } from 'mdi-material-ui';
-import { ImageFilterCenterFocus } from 'mdi-material-ui';
+import React from "react";
+import {
+  MovieOpenOutline,
+  ImageFilterCenterFocus,
+  Menu,
+  TelevisionClassic,
+} from "mdi-material-ui";
 //import { ArrowUpBold } from 'mdi-material-ui';
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -18,28 +20,30 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import {BrowserRouter as Router,Route,Link,Switch} from "react-router-dom";
-import Cinema from './Cinema';
-import Tv from './Tv';
-import './App.css';
-import Only_Murders2 from './Only_Murders2'; 
-import Clickbait from './Clickbait';
-import decisaodepartir from './decisaodepartir';
-import avatar2 from './avatar2';
-import amsterdam from './amsterdam';
-import dentecanino from './dentecanino';
-import shrinking from './shrinking';
-import mayans from './mayans';
-import ninguempodesaber from './ninguempodesaber';
-import achegada from './achegada.js';
-import banshees from './bansheesinisherin';
-import entrefacas from './entrefacas';
-import experimenter from './experimenter';
-import argentina from './argentina';
-import ruptura from './ruptura';
-import adaonegro from './adaonegro';
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
+import Cinema from "./Cinema";
+import Tv from "./Tv";
+import menuPrincipal from "./menuPrincipal";
+import "./App.css";
 
+import Only_Murders2 from "./Only_Murders2";
+import Clickbait from "./Clickbait";
+import decisaodepartir from "./decisaodepartir";
+import avatar2 from "./avatar2";
+import amsterdam from "./amsterdam";
+import dentecanino from "./dentecanino";
+import shrinking from "./shrinking";
+import mayans from "./mayans";
+import ninguempodesaber from "./ninguempodesaber";
+import achegada from "./achegada.js";
+import banshees from "./bansheesinisherin";
+import entrefacas from "./entrefacas";
+import experimenter from "./experimenter";
+import argentina from "./argentina";
+import ruptura from "./ruptura";
+import adaonegro from "./adaonegro";
+import resistencia from "./resistencia";
 
 const drawerWidth = 240;
 
@@ -49,34 +53,34 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
     padding: theme.spacing(3),
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+      duration: theme.transitions.duration.leavingScreen,
     }),
     marginRight: -drawerWidth,
     ...(open && {
       transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen
+        duration: theme.transitions.duration.enteringScreen,
       }),
-      marginLeft: 0
-    })
-  })
+      marginLeft: 0,
+    }),
+  }),
 );
 
 const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open"
+  shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
   transition: theme.transitions.create(["margin", "width"], {
     easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen
+    duration: theme.transitions.duration.leavingScreen,
   }),
   ...(open && {
     width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
+      duration: theme.transitions.duration.enteringScreen,
     }),
-    marginLeft: drawerWidth
-  })
+    marginLeft: drawerWidth,
+  }),
 }));
 
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -84,7 +88,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   alignItems: "center",
   padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar,
-  justifyContent: "flex-start"
+  justifyContent: "flex-start",
 }));
 
 export default function PersistentDrawerRight() {
@@ -99,89 +103,96 @@ export default function PersistentDrawerRight() {
     setOpen(false);
   };
 
-  
   return (
-   
-    <Router >
-      
-      <Box >
-        <CssBaseline />
-        <AppBar position="fixed" open={open} sx={{background: "darkred"}} >
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerOpen}
-              sx={{ marginRight: "auto" }}
-            >
-              <Menu/>
-              <Typography
-                variant="h4"
-                noWrap
-                sx={{ paddingLeft: "260px"}}
-                component="div"   
-                position={"fixed"}
+    <Router>
+      <div>
+        <Box>
+          <CssBaseline />
+          <AppBar position="fixed" open={open} sx={{ background: "darkred" }}>
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={!open ? handleDrawerOpen : handleDrawerClose}
+                sx={{ marginRight: "auto" }}
               >
-              <MovieOpenOutline sx={{ verticalAlign: "middle" }} /> Filminhos <TelevisionClassic sx={{ verticalAlign: "middle" }}/> 
-              </Typography>
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-        <Main open={open}>
-          <DrawerHeader />
-          </Main>
-          
-          
-        <Drawer
-          sx={{
-            width: drawerWidth,
-            flexShrink: 0,
-            "& .MuiDrawer-paper": {
-              width: drawerWidth
-            }
-          }}
-          variant="persistent"
-          anchor="left"
-          open={open}
-        >
-          <DrawerHeader>
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === "rtl" ? (
                 <Menu />
-              ) : (
-                <Menu />
-              )}
-            </IconButton>
-          </DrawerHeader>
-          <Divider />
-          <List>
-            {["Menu Principal","Cinema", "TV"].map((text, index) => (
-               <ListItem
-               key={text}
-               disablePadding
-               component={Link}
-               to={
-                 index === 0 ? "/app" :
-                 index === 1 ? "/cinema" : "/tv"
-               }
-             >
-               <ListItemButton>
-                 <ListItemIcon>
-                   {index === 0 ? <ImageFilterCenterFocus /> :
-                    index === 1 ? <MovieOpenOutline /> :
-                    <TelevisionClassic />}          
-                 </ListItemIcon>
-                 <ListItemText primary={text} />
-               </ListItemButton>
-             </ListItem>
-            ))}
-          </List>
-          <Divider />
-        </Drawer>
-      </Box>
+                <Typography
+                  variant="h4"
+                  noWrap
+                  sx={{ paddingLeft: "260px" }}
+                  component="div"
+                  position={"fixed"}
+                >
+                  <MovieOpenOutline sx={{ verticalAlign: "middle" }} />{" "}
+                  Filminhos{" "}
+                  <TelevisionClassic sx={{ verticalAlign: "middle" }} />
+                </Typography>
+              </IconButton>
+            </Toolbar>
+          </AppBar>
 
+          <Main open={open}>
+            <DrawerHeader />
+          </Main>
+
+          <Drawer
+            sx={{
+              width: drawerWidth,
+              flexShrink: 0,
+              "& .MuiDrawer-paper": {
+                width: drawerWidth,
+              },
+            }}
+            variant="persistent"
+            anchor="left"
+            open={open}
+          >
+            <DrawerHeader>
+              <IconButton
+                onClick={!open ? handleDrawerOpen : handleDrawerClose}
+              >
+                {theme.direction === "rtl" ? <Menu /> : <Menu />}
+              </IconButton>
+            </DrawerHeader>
+            <Divider />
+            <List>
+              {["Menu Principal", "Cinema", "TV"].map((text, index) => (
+                <ListItem
+                  key={text}
+                  disablePadding
+                  component={Link}
+                  style={{ color: "darkred" }}
+                  to={
+                    index === 0
+                      ? "/menuprincipal"
+                      : index === 1
+                      ? "/cinema"
+                      : "/tv"
+                  }
+                >
+                  <ListItemButton>
+                    <ListItemIcon>
+                      {index === 0 ? (
+                        <ImageFilterCenterFocus />
+                      ) : index === 1 ? (
+                        <MovieOpenOutline />
+                      ) : (
+                        <TelevisionClassic />
+                      )}
+                    </ListItemIcon>
+                    <ListItemText primary={text} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+            <Divider />
+          </Drawer>
+        </Box>
+      </div>
       <Switch>
+        <Route path="/menuprincipal" component={menuPrincipal} />
         <Route path="/cinema" component={Cinema} />
         <Route path="/tv" component={Tv} />
         <Route path="/Only_Murders2" component={Only_Murders2} />
@@ -200,6 +211,7 @@ export default function PersistentDrawerRight() {
         <Route path="/argentina" component={argentina} />
         <Route path="/ruptura" component={ruptura} />
         <Route path="/adaonegro" component={adaonegro} />
+        <Route path="/resistencia" component={resistencia} />
       </Switch>
     </Router>
   );
